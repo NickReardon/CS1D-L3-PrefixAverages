@@ -1,0 +1,16 @@
+    Implement prefixAverages1 and prefixAverages2 and perform an 
+experimental analysis of their running time using multiple array 
+(vector) sizes.  
+
+    Discuss (write a paragraph) and graph (with a trend line) your 
+results of your experiments quantitatively (don’t use words like 
+“significantly larger, various, slower, etc.).  If your times for
+your experiment do not make sense, count the number of executable
+statements.  You should not just state the Big-oh analysis.
+Output the first four values of the input and output arrays 
+(vectors) to verify the algorithms.  Do not compare prefixAverages1
+and prefixAverages2.  Do not address coding features.
+
+Work with a different partner from Labs 1 and 2.  
+Due January 27th
+
