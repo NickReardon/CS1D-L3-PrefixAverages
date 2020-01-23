@@ -20,4 +20,4 @@
 #endif // _HEADER_H_
 
 void prefixAverages2();
-void prefixAverages1();
+void prefixAverages1(int size);

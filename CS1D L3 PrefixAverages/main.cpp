@@ -31,7 +31,7 @@ void prefixAverages2()
 	//sdgsdg
 }
 
-void prefixAverages1()
+void prefixAverages1(int size)
 {
 	//sdfdf
 }
