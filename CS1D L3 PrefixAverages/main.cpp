@@ -26,6 +26,11 @@ int main()
 	return 0;
 }
 
+void prefixAverages2()
+{
+	//sdgsdg
+}
+
 void prefixAverages1()
 {
 	//sdfdf

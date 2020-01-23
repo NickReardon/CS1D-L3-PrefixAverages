@@ -19,4 +19,5 @@
 
 #endif // _HEADER_H_
 
+void prefixAverages2();
 void prefixAverages1();
