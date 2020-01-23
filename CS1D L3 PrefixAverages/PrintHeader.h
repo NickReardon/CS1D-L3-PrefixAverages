@@ -54,7 +54,7 @@
 * ---------------------------------------------------------------------------
 * MAX_OUTPUT		: Max movies to be output at once
 *****************************************************************************/
-const std::string PROGRAMMER = "Nick Reardon";
+const std::string PROGRAMMER = "Nick Reardon & Farnam Keshavarzian";
 const std::string SECTION = "MW - 2:30p";
 const std::string CLASS = "CS1D";
 const int PROGRAM_NUM = 3;
