@@ -13,13 +13,16 @@
 #include <iomanip>
 #include <string>
 #include "PrintHeader.h"
-#include <ctime>
-#include <chrono>
+
 
 //Program Specific
-
+#include <ctime>
+#include <chrono>
+#include <fstream>
 
 #endif // _HEADER_H_
 
-void prefixAverages2(int size);
-void prefixAverages1(int size);
+
+int* prefixAverages1(int* inputAr, int size);
+
+int* prefixAverages2(int* inputAr, int size);

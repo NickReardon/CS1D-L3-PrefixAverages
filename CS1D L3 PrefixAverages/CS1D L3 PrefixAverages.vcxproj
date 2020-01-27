@@ -124,6 +124,7 @@
   <ItemGroup>
     <Text Include="IOStream.txt" />
     <Text Include="Prompt.txt" />
+    <Text Include="timing.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

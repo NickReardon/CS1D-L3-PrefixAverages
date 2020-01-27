@@ -34,5 +34,8 @@
     <Text Include="Prompt.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="timing.csv">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

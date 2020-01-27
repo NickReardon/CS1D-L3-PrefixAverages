@@ -19,55 +19,114 @@ int main()
 	PrintHeader(cout, "Prompt.txt");
 
 	/********************************************************************/
+
+	srand((unsigned)time(NULL));
+
+	std::ofstream timingFile;
+	timingFile.open("timing.csv");
+
 	std::chrono::high_resolution_clock::time_point t1;
 	std::chrono::high_resolution_clock::time_point t2;
 
-	long double duration;
-	int size = 0;
 
-	for (int i = 0; i < 5; i++)
+	const int testCount = 10;
+	const int startSize = 50;
+	const int sizeModifier = 2;
+	long double duration[testCount][2];
+	int index;
+	int size;
+
+
+
+	size = startSize;
+	index = 0;
+
+	for (int i = 0; i < testCount; i++)
 	{
-		size += 6000;
-		t1 = std::chrono::high_resolution_clock::now();
-		prefixAverages1(size);
-		t2 = std::chrono::high_resolution_clock::now();
-		duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
 
-		cout << "Time: " << duration << "ms" << endl;
-		cout << "Size: " << size << endl << endl;
+		int* x;
+		x = new int[size];
+
+		for (int i = 0; i < size; i++)
+		{
+			x[i] = rand() % 1000 + 10;
+		}
+
+		int* avg;
+		t1 = std::chrono::high_resolution_clock::now();
+		avg = prefixAverages1(x, size);
+		t2 = std::chrono::high_resolution_clock::now();
+		duration[index][0] = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+		cout << "Time: " << duration[index][0] << "ms" << endl;
+		cout << "Size: " << size << endl;
+		cout << "Input: " << x[0] << ", " << x[1] << ", " << x[2] << ", " << x[3] << endl;
+		cout << "Averages: " << avg[0] << ", " << avg[1] << ", " << avg[2] << ", " << avg[3] 
+			<< endl << endl;
+
+		delete[] x;
+		delete[] avg;
+
+		size *= sizeModifier;
+		index++;
 	}
+
+
 	cout << "\n----------------------------\n";
-	size = 0;
 
-	for (int i = 0; i < 5; i++)
+
+	size = startSize;
+	index = 0;
+
+	for (int i = 0; i < testCount; i++)
 	{
-		size += 6000;
-		t1 = std::chrono::high_resolution_clock::now();
-		prefixAverages2(size);
-		t2 = std::chrono::high_resolution_clock::now();
-		duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
 
-		cout << "Time: " << duration << "ms" << endl;
-		cout << "Size: " << size << endl << endl;
+		int* x;
+		x = new int[size];
+
+		for (int i = 0; i < size; i++)
+		{
+			x[i] = rand() % 1000 + 10;
+		}
+
+		int* avg;
+		t1 = std::chrono::high_resolution_clock::now();
+		avg = prefixAverages2(x, size);
+		t2 = std::chrono::high_resolution_clock::now();
+		duration[index][1] = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+		cout << "Time: " << duration[index][1] << "ms" << endl;
+		cout << "Size: " << size << endl;
+		cout << "Input: " << x[0] << ", " << x[1] << ", " << x[2] << ", " << x[3] << endl;
+		cout << "Averages: " << avg[0] << ", " << avg[1] << ", " << avg[2] << ", " << avg[3] 
+			<< endl << endl;
+
+		delete[] x;
+		delete[] avg;
+
+		size *= sizeModifier;
+		index++;
 	}
 
+	size = startSize;
 
+	timingFile << "Size,Time (ms), " << endl
+		<< ", prefixAverages1, prefixAverages2" << endl;
+
+	for (int i = 0; i < testCount; i++)
+	{
+		timingFile << size << ',' << duration[i][0] << ',' << duration[i][1] << endl;
+		size *= sizeModifier;
+	}
+
+	timingFile.close();
 	system("pause");
 	return 0;
 }
 
 
-void prefixAverages1(int size)
+int* prefixAverages1(int *inputAr, int size)
 {
-	int* x;
-	x = new int[size];
-
-	srand((unsigned)time(NULL));
-	for (int i = 0; i < size; i++)
-	{
-		x[i] = rand() % 1000 + 10;
-	}
-
 	int *arr;
 	arr = new int[size];
 	int a;
@@ -77,30 +136,25 @@ void prefixAverages1(int size)
 		a = 0;
 		for(int j = 0; j <= i; j++)
 		{
-			a = a + x[j];
+			a = a + inputAr[j];
 		}
 		arr[i] = a / (i + 1);
 	}
 
+	return arr;
 }
-void prefixAverages2(int size)
+int* prefixAverages2(int* inputAr, int size)
 {
-	int* x;
-	x = new int[size];
-
-	srand((unsigned)time(NULL));
-	for (int i = 0; i < size; i++)
-	{
-		x[i] = rand() % 1000 + 10;
-	}
-
 	int* arr;
 	arr = new int[size];
 	int a = 0;
+
 	for (int i = 0; i < size; i++)
 	{
-		a = a + x[i];
+		a = a + inputAr[i];
 		arr[i] = a / (i + 1);
 	}
+
+	return arr;
 }
 
