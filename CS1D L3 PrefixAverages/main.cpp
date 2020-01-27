@@ -31,7 +31,8 @@ int main()
 
 	const int testCount = 10;
 	const int startSize = 50;
-	const int sizeModifier = 2;
+	const float sizeModifier = 2;
+	bool sizeMultiply = true;
 	long double duration[testCount][2];
 	int index;
 	int size;
@@ -58,7 +59,7 @@ int main()
 		t2 = std::chrono::high_resolution_clock::now();
 		duration[index][0] = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
-		cout << "Time: " << duration[index][0] << "ms" << endl;
+		cout << "Time: " << duration[index][0] << " microseconds" << endl;
 		cout << "Size: " << size << endl;
 		cout << "Input: " << x[0] << ", " << x[1] << ", " << x[2] << ", " << x[3] << endl;
 		cout << "Averages: " << avg[0] << ", " << avg[1] << ", " << avg[2] << ", " << avg[3] 
@@ -67,7 +68,14 @@ int main()
 		delete[] x;
 		delete[] avg;
 
-		size *= sizeModifier;
+		if (sizeMultiply)
+		{
+			size *= sizeModifier;
+		}
+		else
+		{
+			size += sizeModifier;
+		}
 		index++;
 	}
 
@@ -95,7 +103,7 @@ int main()
 		t2 = std::chrono::high_resolution_clock::now();
 		duration[index][1] = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
-		cout << "Time: " << duration[index][1] << "ms" << endl;
+		cout << "Time: " << duration[index][1] << " microseconds" << endl;
 		cout << "Size: " << size << endl;
 		cout << "Input: " << x[0] << ", " << x[1] << ", " << x[2] << ", " << x[3] << endl;
 		cout << "Averages: " << avg[0] << ", " << avg[1] << ", " << avg[2] << ", " << avg[3] 
@@ -104,19 +112,33 @@ int main()
 		delete[] x;
 		delete[] avg;
 
-		size *= sizeModifier;
+		if (sizeMultiply)
+		{
+			size *= sizeModifier;
+		}
+		else
+		{
+			size += sizeModifier;
+		}		
 		index++;
 	}
 
 	size = startSize;
 
-	timingFile << "Size,Time (ms), " << endl
+	timingFile << "Size,Time (microseconds), " << endl
 		<< ", prefixAverages1, prefixAverages2" << endl;
 
 	for (int i = 0; i < testCount; i++)
 	{
 		timingFile << size << ',' << duration[i][0] << ',' << duration[i][1] << endl;
-		size *= sizeModifier;
+		if (sizeMultiply)
+		{
+			size *= sizeModifier;
+		}
+		else
+		{
+			size += sizeModifier;
+		}
 	}
 
 	timingFile.close();

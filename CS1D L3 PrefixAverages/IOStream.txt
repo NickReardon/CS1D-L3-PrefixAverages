@@ -1,51 +1,131 @@
 ****************************************************************************
-* PROGRAMMED BY : Nick Reardon and Danin Namiranian
+* PROGRAMMED BY : Nick Reardon & Farnam Keshavarzian
 * CLASS         : CS1D
 * SECTION       : MW - 2:30p
-* Lab #1        : Templates
+* Lab #3        : Prefix Averages
 ****************************************************************************
 
-                              Lab #1 - Templates
+                           Lab #3 - Prefix Averages
 
-  This program will generate 15 random 3 digit numbers and
-  store them in a vector. Then it will:
-    - Sort the numbers
-    - Reverse the digits in each number
-        - Store the reversed numbers in a new vector
-        - Find the some of the 3 digits of each numbers
-        - Store the sums in a new vector
-    - Print all 3 vectors
+    Implement prefixAverages1 and prefixAverages2 and perform an
+experimental analysis of their running time using multiple array
+(vector) sizes.
 
-      Notes:
-        - Numbers less than 100, will display with
-          leading zeroes (eg. 009, rather than just 9)
-        - Sums will be displayed associated with the
-          original number
+    Discuss (write a paragraph) and graph (with a trend line) your
+results of your experiments quantitatively (don∆t use words like
+Ùsignificantly larger, various, slower, etc.).  If your times for
+your experiment do not make sense, count the number of executable
+statements.  You should not just state the Big-oh analysis.
+Output the first four values of the input and output arrays
+(vectors) to verify the algorithms.  Do not compare prefixAverages1
+and prefixAverages2.  Do not address coding features.
+
+Work with a different partner from Labs 1 and 2.
+Due January 27th
+
 
 ****************************************************************************
 
- ** Populating with random  numbers
+Time: 3 microseconds
+Size: 50
+Input: 248, 557, 502, 900
+Averages: 248, 402, 435, 551
 
- ** Sorting vectors
+Time: 10 microseconds
+Size: 100
+Input: 622, 174, 948, 861
+Averages: 622, 398, 581, 651
 
- ** Reversing digits and storing in new vector
+Time: 39 microseconds
+Size: 200
+Input: 278, 560, 684, 572
+Averages: 278, 419, 507, 523
 
- ** Summing the digits and storing in new vector
+Time: 144 microseconds
+Size: 400
+Input: 759, 207, 608, 254
+Averages: 759, 483, 524, 457
 
-Original  Reversed
-103       301       Sum of the digits of 103 is 4
-185       581       Sum of the digits of 185 is 14
-271       172       Sum of the digits of 271 is 10
-321       123       Sum of the digits of 321 is 6
-370       073       Sum of the digits of 370 is 10
-377       773       Sum of the digits of 377 is 17
-467       764       Sum of the digits of 467 is 17
-522       225       Sum of the digits of 522 is 9
-640       046       Sum of the digits of 640 is 10
-642       246       Sum of the digits of 642 is 12
-647       746       Sum of the digits of 647 is 17
-656       656       Sum of the digits of 656 is 17
-816       618       Sum of the digits of 816 is 15
-961       169       Sum of the digits of 961 is 16
-994       499       Sum of the digits of 994 is 22
+Time: 627 microseconds
+Size: 800
+Input: 520, 612, 269, 736
+Averages: 520, 566, 467, 534
+
+Time: 2147 microseconds
+Size: 1600
+Input: 758, 296, 222, 671
+Averages: 758, 527, 425, 486
+
+Time: 7456 microseconds
+Size: 3200
+Input: 311, 104, 399, 242
+Averages: 311, 207, 271, 264
+
+Time: 29562 microseconds
+Size: 6400
+Input: 999, 666, 459, 184
+Averages: 999, 832, 708, 577
+
+Time: 118145 microseconds
+Size: 12800
+Input: 778, 884, 846, 985
+Averages: 778, 831, 836, 873
+
+Time: 489229 microseconds
+Size: 25600
+Input: 861, 806, 609, 376
+Averages: 861, 833, 758, 663
+
+
+----------------------------
+Time: 0 microseconds
+Size: 50
+Input: 969, 898, 703, 607
+Averages: 969, 933, 856, 794
+
+Time: 1 microseconds
+Size: 100
+Input: 730, 744, 741, 711
+Averages: 730, 737, 738, 731
+
+Time: 1 microseconds
+Size: 200
+Input: 203, 359, 535, 800
+Averages: 203, 281, 365, 474
+
+Time: 2 microseconds
+Size: 400
+Input: 92, 766, 443, 983
+Averages: 92, 429, 433, 571
+
+Time: 8 microseconds
+Size: 800
+Input: 309, 704, 261, 537
+Averages: 309, 506, 424, 452
+
+Time: 21 microseconds
+Size: 1600
+Input: 415, 461, 487, 687
+Averages: 415, 438, 454, 512
+
+Time: 14 microseconds
+Size: 3200
+Input: 79, 99, 38, 351
+Averages: 79, 89, 72, 141
+
+Time: 29 microseconds
+Size: 6400
+Input: 893, 227, 561, 721
+Averages: 893, 560, 560, 600
+
+Time: 56 microseconds
+Size: 12800
+Input: 868, 401, 753, 20
+Averages: 868, 634, 674, 510
+
+Time: 116 microseconds
+Size: 25600
+Input: 735, 682, 246, 886
+Averages: 735, 708, 554, 637
+
 Press any key to continue . . .
